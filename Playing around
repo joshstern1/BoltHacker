@@ -1,0 +1,1 @@
+We found that if you give access to someone and then revoke it, as long as the bluetooth connection stays established, they can still control the lock for about another ten minutes. Eventually something expires and they can no longer control it.
