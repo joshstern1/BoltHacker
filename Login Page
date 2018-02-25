@@ -1,0 +1,6 @@
+If you select "Can't Login" it will open a prompt for you to enter either an email address or phone number, and then it will send a link to you so you can reset your password.
+
+The link it sent me was : https://lockitron.com/r/Bggkgw (which took me to)-> https://lockitron.com/dashboard/account/Bggkgw/reset
+
+I was able to reset my password. I later tried going to this link again but the lockitron site recognized it as a password reset link that was invalid because it had already been used.
+
