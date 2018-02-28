@@ -1,1 +1,11 @@
 Going to have to figure out how to set this lock up. Let's get to it!
+
+Download app on iPhone from app store
+
+Currently setup under Joshua Stern's account. Username: joshuastern72@gmail.com  
+
+Put in batteries into lock and use app to search for lock.
+
+Installed and tested and working properly.
+
+I am able to share access to the lock with Zack who also downloaded the app, and he is able to lock and unlock the lock. I can set time limits for him and revoke access whenever I want to.
