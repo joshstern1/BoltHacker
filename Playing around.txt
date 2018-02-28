@@ -18,3 +18,5 @@ fourth time resetting password: HT_xZW
 These password reset links are only differentiated by a 6 character sequence. This could possibly be brute forced. But if we try to brute force the webstie with lockitron.com/r/123456 and so on, then we will probably get blocked from the site.
 
 
+Text Messages:
+Because we have the bridge set up, it is connected to both my house's wifi and the bolt via ble. The website shows that I can send a simple text message ((8d35 L) or (8d35 U)) to lock or unlock the bolt. It would be interesting to find out if we could spoof a cell phone number and send these texts, in order to hack the bolt. Research shows: Impossible :(
