@@ -1,1 +1,20 @@
-We found that if you give access to someone and then revoke it, as long as the bluetooth connection stays established, they can still control the lock for about another ten minutes. Eventually something expires and they can no longer control it.
+
+Expiration stalling:
+We found that if you give access to someone and then revoke it, as long as the bluetooth connection stays established, they can still control the lock for about another ten minutes. Eventually something expires and they can no longer control it. This is potentially dangerous and we should figure out why this is happening.
+
+Password Reset:
+At lockitron.com/account/login, ff you select "Can't Login" it will redirect you to lockitron.com/account/forgot and ask for you to enter either an email address or phone number, and then it will send a link to you so you can reset your password.The link it sent me was : https://lockitron.com/r/Bggkgw (which took me to)-> https://lockitron.com/dashboard/account/Bggkgw/reset. 
+I was able to reset my password. I later tried going to this link again but the lockitron site recognized it as a password reset link that was invalid because it had already been used.
+
+Next time resetting password:
+
+"https://lockitron.com/r/vFp_aQ"
+
+Next time resetting password: 
+<p>We received a request to reset the password on your account. Please head to <a href="https://lockitron.com/r/Dgq2Hw" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=https://lockitron.com/r/Dgq2Hw&amp;source=gmail&amp;ust=1519678581918000&amp;usg=AFQjCNGPlSXvQabvOjnwxb1E-UqR5nXwTg">our password reset page</a> in order to reset your account.</p>
+
+fourth time resetting password: HT_xZW
+
+These password reset links are only differentiated by a 6 character sequence. This could possibly be brute forced. But if we try to brute force the webstie with lockitron.com/r/123456 and so on, then we will probably get blocked from the site.
+
+
