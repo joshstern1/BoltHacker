@@ -1,0 +1,20 @@
+Below is the html taken from the login page. Besides requiring an email and password, there are two hidden values. The authenticity token in a CSRF token, because I tried changing it and it didn't work. The other other (the check mark) serves no purpose. I tried changing it, but it didn't do anything and I was still able to log in. Notice they are also using angular javascript.
+
+
+<form accept-charset="UTF-8" action="/account/login" id="login_form" method="post"><div style="margin:0;padding:0;display:inline">
+
+<input name="utf8" type="hidden" value="✓">
+<input name="authenticity_token" type="hidden" value="GuXqmu23Ls9S0z07o4pQZzS6QmeHzrZoF1WMJVYw+MY=">
+</div>
+
+<input type="email" placeholder="Email" required="" name="email">
+<input type="password" placeholder="Password" required="" name="password">
+
+
+	<fieldset>
+
+<!-- Generally, inline JS is bad. I'd just use Angular but I don't want to include all that JS on every single page. So, we use a little inline JS as a workaround. -->
+<a id="cant_login" onclick="AccountForm.show(&quot;forgot&quot;)">Can't login?</a>
+<input type="submit" class="button main-action" name="submit" value="Login">
+	</fieldset>
+</form>
