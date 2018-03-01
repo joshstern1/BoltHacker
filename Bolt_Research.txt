@@ -1,0 +1,27 @@
+Preliminary Bolt research:
+
+Exploitation ideas:
+  - website account hacking
+      - shown with Josh that this is not a feasible route
+  - Bluetooth sniffing
+  - Wifi packet manipulation
+    - External bridge provides entry point for exploitation (yet to test)
+    - found that SMS attempts through bridge were not possible to spoof
+
+Brute force login attempts:
+  1. 
+  
+Bluetooth Low Energy (BLE)
+  - Sources
+    - https://mbientlab.com/tutorials/AboutBluetooth.html
+    - 
+
+  - GAP (Generic Access Protocol)
+      - allows your device to be seen to the outside world
+      - handles all connections and advertisments
+      
+
+
+
+  
+ 
