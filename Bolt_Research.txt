@@ -8,6 +8,15 @@ Exploitation ideas:
     - External bridge provides entry point for exploitation (yet to test)
     - found that SMS attempts through bridge were not possible to spoof
 
+BLE repeater attack idea:
+  -the lock has an option for you to set the lock so that it unlocks automatically whenever you are away and then return to the lock
+  -if we could make the lock think that the phone is returning home, maybe we could trick the lock into opening
+  -idea: establish a long range bluetooth connection between the lock and phone so that they both think that they are right next to       each other
+  -how to potentially do it: set up two bridges, one near the phone, and one near the lock. Each bridge captures the bluetooth sent out from one of the devices, sends its as a payload over a long range http or cellular connection to the other bridge, which then retranmits the bluetooth to the other device. Basically this is just building a giant bluetooth extender/repeater.
+  -the phone thinks that its bridge is actually the lock, and the lock thinks that its bridge is actually the phone
+  -these types of bridges exist but this attack would be difficult to implement.
+  -reason it gets past the encryption is that we would literally take the encrypted packet sent out by the lock, and have the other bridge send that same encrypted packet to the phone, and vice versa.
+
 Brute force login attempts:
   1. 
   
