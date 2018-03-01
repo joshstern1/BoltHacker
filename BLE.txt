@@ -1,5 +1,5 @@
  Sniffer
- A Bluefruit LE Sniffer - Bluetooth Low Energy (BLE 4.0) - nRF51822 - v3.0 from Adafruit is expected to arrive in the mail soon, and this will allow us to sniff the bluetooth low energy packets that are sent between my phone and the bolt. Also, we will be able to see the packets between the bridge and the bolt. 
+ A Bluefruit LE Sniffer - Bluetooth Low Energy (BLE 4.0) - nRF51822 - v3.0 from Adafruit is expected to arrive in the mail soon, and this will allow us to sniff the bluetooth low energy packets that are sent between my phone and the bolt. Also, we will be able to see the packets between the bridge and the bolt. It can passively capture data and we can analyze it on wireshark. Some early interests are replay attacks, if we can see the messages that are sent from the phone to the bolt, we can potentially replay this from a ble transmitter and control the lock.
  
 BLE APP
 Bluefruit LE Connect for iOS
