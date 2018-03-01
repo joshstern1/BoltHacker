@@ -1,0 +1,41 @@
+ Sniffer
+ A Bluefruit LE Sniffer - Bluetooth Low Energy (BLE 4.0) - nRF51822 - v3.0 from Adafruit is expected to arrive in the mail soon, and this will allow us to sniff the bluetooth low energy packets that are sent between my phone and the bolt. Also, we will be able to see the packets between the bridge and the bolt. 
+ 
+BLE APP
+Bluefruit LE Connect for iOS
+This app for iOS lets your iPhone connect to BLE devices and it displays characteristics of the devices. 
+Here is the information that the app was able to provide on the bolt:
+
+Manufacturer Name: Lockitron
+Model Number: Bolt
+Firmware Revision: 64_1456547947
+Software Revision: 1496963301
+
+DFU Serivce
+DFU Packet: Characteristic
+Client Characteristic Configuration: Descriptor
+DFU Version: 08 00
+
+0D08ECE-99F7-48C5-AB62-EE2EC52D4888
+0D08DAEF-99F7-48C5-AB62-EE2EC52D48B8
+Characteristic User Description: EncPipeWriteNonce
+  45 6E 63 50 69 70 65 57 72 69 74 65 4E 6F 6E 63 65
+Client Characteristic Configuration: 0
+0D08DAED-99F7-48C5-AB62-EE2EC52D48B8: Characteristic
+Characteristic User Description: EncPipeWrite
+  45 6E 63 50 69 70 65 57 72 69 74 65
+0D08DEAF-99F7-48C5-AB62-EE2EC52D48B8
+Characterisitc User Description: EncPipeReadNonce
+  45 6E 63 50 69 70 65 52 65 61 64 4E 6F 6E 63 65
+0D08DEAD-99F7-48C5-AB62-EE2EC52D48B8
+Characteristic User Description: EncPipeRead
+  45 6E 63 50 69 70 65 52 65 61 64
+Client Characteristic Configuration: 0
+
+A1A51A18-7B77-47D2-91DB-34A48DCD3DE9
+1A53E107-58F7-47E5-A919-ACC9E05A908B
+562E4701-C08E-4574-A&B0-908823260DF3: Characteristic
+C2BEA3D2-AE33-4E9F-ABEE-E05377F8623F: 01
+Client Characteristic Configuration: 0
+26397326-157C-4364-ACAD-E7441B43E3FC
+Client Characteristic Configuration: 0
