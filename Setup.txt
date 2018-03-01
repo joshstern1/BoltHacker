@@ -9,3 +9,5 @@ Put in batteries into lock and use app to search for lock.
 Installed and tested and working properly.
 
 I am able to share access to the lock with Zack who also downloaded the app, and he is able to lock and unlock the lock. I can set time limits for him and revoke access whenever I want to.
+
+We have also purchased the bridge which we have paired to the Wifi. This is letting us control the lock over wifi if we are not within ble range. I am not sure if the bridge can communicate with my phone. It connects to the Lockitron server, and we can access it on their website.
