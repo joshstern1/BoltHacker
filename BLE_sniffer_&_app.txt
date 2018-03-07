@@ -1,6 +1,41 @@
  Sniffer
  A Bluefruit LE Sniffer - Bluetooth Low Energy (BLE 4.0) - nRF51822 - v3.0 from Adafruit is expected to arrive in the mail soon, and this will allow us to sniff the bluetooth low energy packets that are sent between my phone and the bolt. Also, we will be able to see the packets between the bridge and the bolt. It can passively capture data and we can analyze it on wireshark. Some early interests are replay attacks, if we can see the messages that are sent from the phone to the bolt, we can potentially replay this from a ble transmitter and control the lock.
  
+ 
+ Hacking Bluetooth Low Energy Applications (Melamed)
+ - BLE is power efficient, cheaper, very different from BLT classic, widely used in IoT devices, operates at 2.4 GHz
+ - Architecture: Apps -> Host -> Controller
+       -Host: Generic Access Profile, Generic Attribute Profile, Security Manager, Logical Link Control
+       -Controller: Radio Control, Connection Linking
+ - Security Manager:
+       -Threee phases of connection: 
+             1) pairing feature exchange
+             2) short term key generation
+             3) transport specific key distribution
+       - Has AES-128 capabilities
+       - Uses Key Distribution to share various keys
+       - Pairing encrypts the link using a temporary key (TK) which is derived from passkey, then distribute keys
+       - Pairing:
+             - Uses keys to encrypt communication, also can use them to encrypt future reconnections
+       - How to determine temporary key?
+             - JustWorks
+                 -legacy, common, actually just a key of zero
+             - 6-digit Pin (common if device has a display)
+             - Out of band (OOB)
+                 - does not share secret key over 2.4 GHz band, barely used
+ - Generic Attribute Profile (GAT)
+       - Services and characteristic are identified by associated UUID
+       - A characteristic contains a single value (attribute) that can be read, written to or subscribed for notifications
+ - Normal Man-in-the-Middle (MitM)
+       - wont work b/c BLE adapters can serve as both ends, one will have to serve as the app and the other as the device
+ -BLE Man-in-the-Middle
+       - Get two BLE components, connect one to app and other to device, have them communicate over websocket
+       - In websocket, you can intercept and manipulate data
+       - Can work really well if device can do stuff without user action on the app
+       - Lockitron is probably encrypted, but let's check and see what we can do
+ 
+
+ 
 BLE APP
 Bluefruit LE Connect for iOS
 This app for iOS lets your iPhone connect to BLE devices and it displays characteristics of the devices. 
