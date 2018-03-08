@@ -1,0 +1,72 @@
+First run with sniffer:
+
+lock public name: 1998231a  RSSI: -58 dBm  address: 0f:09:19:98:23:1a  random
+phone public name: ""       RSSI: -60 dBm  address: 48:66:f7:00:42:97  random
+
+Master: Phone
+Slave: Lock
+
+- Master and slave start by sending pings to each other. These pings are running LE LL (Low energy link layer) protocol
+      - These pings are 26 bytes long and are called "Empty PDU"
+      - These pings are sent at a delay known as the "connection interval"
+      
+- Then the slave starts sending out advertisements to the master
+      - These ads are 63 bytes long, still over the LE LL protocol
+      - But they are called "ADV_INFO"
+      - These ads contain the public name of the slave (1998231a)
+      - They contain a 16 byte service class UUID: e9:3d:cd:8d:a4:34:db:91:d2:47:77:7b:18:1a:a5:a1
+          - This UUID represents the service that the lock is advertising
+    
+- Slave eventually sends a connection request
+      - 60 bytes long, LE LL protocol, called "CONNECT_REQ"
+      - some information about windows and channels is passed in this message
+      
+-Master then requests different attributes from the slave, and the slave responds with them
+      - Ex: Master sends a "Rcvd Read by Group Type Request, GATT Primary Service Declaration, Handle: 0x0015 - 0xffff"
+          - Slave responds with "Rcvd Read by Group Type Response, Attribute List Length: 1
+                - value in handle 0x0015 = e9:3d:cd:8d:a4:34:db:91:d2:47:77:7b:18:1a:a5:a1
+             
+- First Unlock: (All messages over ATT (Bluetooth Attribute) protocol)
+      - Master sends "Rcvd Prepare Write Request, Handle: 0x0019, offset: 0"
+          - The handle represents the index into location of an entry in the attribute table
+          - So when we want to lock and unlock the lock, we know this characteristic is at index 0x0019 of the attribute table
+          - Message also contains the value to be written to the handle: 1c:c7:9c:10:f8:e4:61:3c:ec:94:2e:2c:5d:50:c7:e3:2c:1b
+      - Slave responds with "Rcvd Prepare Write Response, Handle: 0x0019, offset: 0"
+          - This response echoes back the handle and value that were just received from the master's request
+      - Master then sends another "Rcvd Prepare Write Rquest, Handle: 0x0019, offset: 18"
+          - Same handle, different offset? What characteristic do the offsets represent?
+          - Value: de:2e:bc:19
+      - Slave then responds the same way
+      - Master then sends "Rcvd Execute Write Request, Immediately Write All"
+          - Contains opcode (value: 0x18) Execute Write Request
+          - Contains flag that has value: 0x01 which is the flag for Immediately Write All
+      - Slave responds with "Rcvd Execute Write Response"
+          - opcode: 0x19, Execute Write Reponse
+      - Slave then sends two Handle Value Notifications (opcode: 0x1b)
+          - handle: 0x1b, value: 01
+          - handle 0x1e(actuallt three notifications of this handle): value: 01:02:50:00:00:00:00:00:00:00:00:00:00:00:00:00
+                                                                      value: 01:01:50:00:00:00:00:00:00:00:00:00:00:00:00:00
+                                                                      value: 01:00:50:00:00:00:00:00:00:00:00:00:00:00:00:00
+      - Master then sends read request of handle 0x17
+      - Slave responds with value: 05:c7:9c:00:31:d8
+     
+  - First Lock
+      - Everything happens pretty much same way
+      - Sends Write Request to handle 0x19 offset 0 with value: 1c:ee:1d:10:15:b3:66:f4:8c:ac:10:3d:50:b8:30:36:93:67
+      - Sends Write Request to handle 0x19 offset 18 with value: 4f:51:9b:3a
+      - Slave sends value notification of handle 0x1b with value: 01
+      - Slave sends three notifications of handle 0x1e with values:
+           01:02:50:00:00:00:00:00:00:00:00:00:00:00:00:00
+           01:00:50:00:00:00:00:00:00:00:00:00:00:00:00:00
+           01:01:50:00:00:00:00:00:00:00:00:00:00:00:00:00
+      - Master reads requests handle 0x17
+          - Slave responds with value: 05:ee:1d:00:a9:69
+       
+  - Second Unlock
+      - Master writes to handle 0x19 offset 0 value: 1c:8a:25:10:4b:f5:16:f6:0f:06:95:92:6d:d3:c3:84:06:f2
+      - Master writes to handle 0x19 offset 18 value: a8:0b:40:99
+      - Same thing with handle 0x1b
+      - Same thing with handle 0x1e
+      - Master requests read of handle 0x17, Slave responds with value: 05:8a:25:00:b6:3b
+  
+          
