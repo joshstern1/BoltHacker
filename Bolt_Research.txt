@@ -3,6 +3,7 @@ Preliminary Bolt research:
 Sources
   - https://mbientlab.com/tutorials/AboutWireless.html#bluetooth-protocol
   - https://help.lockitron.com/article/107-how-is-lockitron-secured
+  - https://en.wikipedia.org/wiki/OAuth
 
 Threat Model:
   - Attacker can read hashed BLE traffic
@@ -12,8 +13,12 @@ Threat Model:
 How is Lockitron Secured?
   - Application layer and Link layer encryption
   - OAuth2 regulates all apps which request access to your account
-  
-OAtuh Encryption:
+
+Data Link Layer
+  - where connection protocol is established
+  - where we need to figure out the encryption scheme
+
+Applicaiton Layer (OAtuh2 encryption):
   - 
 
 Exploitation ideas:
@@ -94,5 +99,6 @@ Bluetooth Low Energy (BLE)
         
   - Broadcast Network Topology
     - When no connection is established, a peripheral can send data to many devices (only using Advertising Data payload)
-    - once a connection is established between two devices
-    - GATT characteristics transfered in messages
+    - once a connection is established between two devices, they can only talk to each other with GATT services and characteristics
+    
+  - 
