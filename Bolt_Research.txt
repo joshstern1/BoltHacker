@@ -1,29 +1,51 @@
 Preliminary Bolt research:
 
+Sources
+  - https://mbientlab.com/tutorials/AboutWireless.html#bluetooth-protocol
+  - https://help.lockitron.com/article/107-how-is-lockitron-secured
+
+Threat Model:
+  - Attacker can read hashed BLE traffic
+  - Attacker can modify hashed BLE traffic
+  - Attacker does not know ecryption mechanism
+  
+How is Lockitron Secured?
+  - Application layer and Link layer encryption
+  - OAuth2 regulates all apps which request access to your account
+  
+OAtuh Encryption:
+  - 
+
 Exploitation ideas:
   - website account hacking
-      - shown with Josh that this is not a feasible route
-  - Bluetooth sniffing
+    - shown with Josh that this is not a feasible route
+    
+  - Bluetooth sniffing 
+    - BLE 24 hr repeat message attack:
+      - We suspect that the encrypted messages are hashed with the time upon sending
+      - send 2 unlock signals exactly 24 hours apart, sniff them and see if same message is sent
+      - this will let us know if the algorithm hashes with just the time of day or with the date as well
+      - if this is the case, we will know what value the messages are hashed and unhashed with
+        
+    - BLE repeater attack idea:
+      - the lock has an option for you to set the lock so that it unlocks automatically whenever you are away and then return to the lock
+      - if we could make the lock think that the phone is returning home, maybe we could trick the lock into opening
+      - idea: establish a long range bluetooth connection between the lock and phone so that they both think that they are right next to           each other
+      - how to potentially do it: set up two bridges, one near the phone, and one near the lock. Each bridge captures the bluetooth sen
+        out from one of the devices, sends its as a payload over a long range http or cellular connection to the other bridge, which then         retranmits the bluetooth to the other device. Basically this is just building a giant bluetooth extender/repeater.
+      - the phone thinks that its bridge is actually the lock, and the lock thinks that its bridge is actually the phone
+      - these types of bridges exist but this attack would be difficult to implement.
+      - reason it gets past the encryption is that we would literally take the encrypted packet sent out by the lock, and have the other           bridge send that same encrypted packet to the phone, and vice versa.
+      
   - Wifi packet manipulation
     - External bridge provides entry point for exploitation (yet to test)
     - found that SMS attempts through bridge were not possible to spoof
-
-BLE repeater attack idea:
-  -the lock has an option for you to set the lock so that it unlocks automatically whenever you are away and then return to the lock
-  -if we could make the lock think that the phone is returning home, maybe we could trick the lock into opening
-  -idea: establish a long range bluetooth connection between the lock and phone so that they both think that they are right next to       each other
-  -how to potentially do it: set up two bridges, one near the phone, and one near the lock. Each bridge captures the bluetooth sent out from one of the devices, sends its as a payload over a long range http or cellular connection to the other bridge, which then retranmits the bluetooth to the other device. Basically this is just building a giant bluetooth extender/repeater.
-  -the phone thinks that its bridge is actually the lock, and the lock thinks that its bridge is actually the phone
-  -these types of bridges exist but this attack would be difficult to implement.
-  -reason it gets past the encryption is that we would literally take the encrypted packet sent out by the lock, and have the other bridge send that same encrypted packet to the phone, and vice versa.
+    
 
 Brute force login attempts:
   1. 
   
 Bluetooth Low Energy (BLE)
-  - Sources
-    - https://mbientlab.com/tutorials/AboutWireless.html#bluetooth-protocol
-
   - Bluetooth operates on 2.4 GHz ISM band (same as WiFi)
   - unlike traditional Bluetooth, BLE remains in sleep mode until a connection is initiatied
   
@@ -37,7 +59,8 @@ Bluetooth Low Energy (BLE)
       Range |    50-150m    |      50m    |
     ---------------------------------------
     DataRate|     1Mbps     |    600Mbps  |
-    ---------------------------------------    
+    ---------------------------------------
+    
     • Personal Thoughts
       - if we know the frequency at which these work we can better undertand how to sniff the signals
   
@@ -49,7 +72,7 @@ Bluetooth Low Energy (BLE)
     - GNU/Linux Vanilla BlueZ 4.93+ 
   
   - Connection
-    - Bluetooh peripheral can only connect to 1 master device
+    - Bluetooh peripheral can only connect to 1 master device  
         - can have many other slave devices
   
   - GAP (Generic Access Protocol)
@@ -59,7 +82,7 @@ Bluetooth Low Energy (BLE)
   - Device Roles
     - Peripheral and Central devices
       - Central device has more processing power
-      - Peripherals connects to central device
+      - Peripherals connects to central device, lower power/resource constrained
       
   - Advertising Data and Scan Response payloads
     - Both carry up to 31 bytes of data
@@ -67,4 +90,9 @@ Bluetooth Low Energy (BLE)
       - peripherals contantly transmitting to central devices to let them know it exists
     - Scan Response payload
       - can be requested by central device at any point in advertising period
-    -
+        - Peripheral decides length of advertising period
+        
+  - Broadcast Network Topology
+    - When no connection is established, a peripheral can send data to many devices (only using Advertising Data payload)
+    - once a connection is established between two devices
+    - GATT characteristics transfered in messages
