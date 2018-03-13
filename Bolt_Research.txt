@@ -1,6 +1,6 @@
 Preliminary Bolt research:
 
-Sources
+Sources:
   - https://mbientlab.com/tutorials/AboutWireless.html#bluetooth-protocol
   - https://help.lockitron.com/article/107-how-is-lockitron-secured
   - https://en.wikipedia.org/wiki/OAuth
@@ -10,11 +10,11 @@ Threat Model:
   - Attacker can modify hashed BLE traffic
   - Attacker does not know ecryption mechanism
   
-How is Lockitron Secured?
+How is Lockitron Secured?:
   - Application layer and Link layer encryption
   - OAuth2 regulates all apps which request access to your account
 
-Data Link Layer
+Data Link Layer:
   - where connection protocol is established
   - where we need to figure out the encryption scheme
 
@@ -22,8 +22,14 @@ Applicaiton Layer (OAtuh2 encryption):
   - 
 
 Exploitation ideas:
-  - website account hacking
+  - Website Account Hacking
     - shown with Josh that this is not a feasible route
+    
+  - SMS spoofing attack
+    - when signing up for account, can use fake phone number
+    - can send unlock signal through spoofed SMS
+    - Conclusion:
+      - won't work because we would still need to give access to that fake number
     
   - Bluetooth sniffing 
     - BLE 24 hr repeat message attack:
@@ -101,4 +107,30 @@ Bluetooth Low Energy (BLE)
     - When no connection is established, a peripheral can send data to many devices (only using Advertising Data payload)
     - once a connection is established between two devices, they can only talk to each other with GATT services and characteristics
     
-  - 
+  - GATT (Generic Attribute Protocol):
+    - services and characteristics define how BLE devices talk to each other
+    - stores these as 16-bit UID lookup table
+    - GATT connections are exclusive between two connected devices
+    - Server/Client Relationship
+      - GATT Server
+        - holds the ATT lookup data and service and characteristic definitions
+        - slave device
+      - GATT Client
+        - sends requests to the server 
+        - master device
+        - all transactions initiatied by client
+        - will suggest a connection interval, will not always be honored by server since it may be busy talking other peripherals
+    - Services and Characteristics
+      - Profile
+        - doesn't actually exist on the peripheral
+      - Service
+        - used to break data up into logic entities, and contain specific chunks of data called characteristics
+        - each service distinguishes itself from other services by unique 16-bit UUID
+      - Characteristics
+        - Lowest level concept in GATT
+        - encapsulates a single data point
+        - also identified by 16-bit UUID
+  
+  
+  
+       
