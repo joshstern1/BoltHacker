@@ -23,9 +23,37 @@ Applicaiton Layer (OAtuh2 encryption):
   - OAuth allows account information from one web application to be transferred to another web application
   - Withouth the need to enter password
   - Works using the HTTP protocol
+  
   - Process:
-            Web app gets access token 
+            Web app gets access token from authorization server
+            Uses that token to access limited information from another site
             
+  - Used by large companies
+            
+            
+       +--------+                               +---------------+
+     |        |--(A)- Authorization Request ->|   Resource    |
+     |        |                               |     Owner     |
+     |        |<-(B)-- Authorization Grant ---|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(C)-- Authorization Grant -->| Authorization |
+     | Client |                               |     Server    |
+     |        |<-(D)----- Access Token -------|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(E)----- Access Token ------>|    Resource   |
+     |        |                               |     Server    |
+     |        |<-(F)--- Protected Resource ---|               |
+     +--------+                               +---------------+
+
+                     Figure 1: Abstract Protocol Flow
+                     
+    - Authorization server is intermediary between client and resource owner
+    - Authorization grant is a credential that represent the resource owner's permission
+      to access protected information
 
 Exploitation ideas:
   - Website Account Hacking
