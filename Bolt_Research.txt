@@ -22,15 +22,49 @@ Brute force login attempts:
   
 Bluetooth Low Energy (BLE)
   - Sources
-    - https://mbientlab.com/tutorials/AboutBluetooth.html
-    - 
+    - https://mbientlab.com/tutorials/AboutWireless.html#bluetooth-protocol
 
-  - GAP (Generic Access Protocol)
-      - allows your device to be seen to the outside world
-      - handles all connections and advertisments
-      
-
-
-
+  - Bluetooth operates on 2.4 GHz ISM band (same as WiFi)
+  - unlike traditional Bluetooth, BLE remains in sleep mode until a connection is initiatied
   
- 
+  - ---------------------------------------
+      Type  |      BLE      |     WiFi    |
+    ---------------------------------------
+    Standard| Bluetooth 4.2 |    802.11n  |
+    ---------------------------------------
+      Freq  | 2.4 GHz (ISM) |   2.4G/5GHz |
+    ---------------------------------------
+      Range |    50-150m    |      50m    |
+    ---------------------------------------
+    DataRate|     1Mbps     |    600Mbps  |
+    ---------------------------------------    
+    • Personal Thoughts
+      - if we know the frequency at which these work we can better undertand how to sniff the signals
+  
+  - Platform Support
+    - iOS5+ (iOS7+ preferred)
+    - Android 4.3+ (numerous bug fixes in 4.4+)
+    - Apple OS X 10.6+
+    - Windows 8 (XP, Vista and 7 only support Bluetooth 2.1)
+    - GNU/Linux Vanilla BlueZ 4.93+ 
+  
+  - Connection
+    - Bluetooh peripheral can only connect to 1 master device
+        - can have many other slave devices
+  
+  - GAP (Generic Access Protocol)
+    - allows your device to be seen to the outside world
+    - handles all connections and advertisments
+      
+  - Device Roles
+    - Peripheral and Central devices
+      - Central device has more processing power
+      - Peripherals connects to central device
+      
+  - Advertising Data and Scan Response payloads
+    - Both carry up to 31 bytes of data
+    - only Advertising Data payload is necessary
+      - peripherals contantly transmitting to central devices to let them know it exists
+    - Scan Response payload
+      - can be requested by central device at any point in advertising period
+    -
