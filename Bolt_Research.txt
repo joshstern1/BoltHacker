@@ -19,7 +19,13 @@ Data Link Layer:
   - where we need to figure out the encryption scheme
 
 Applicaiton Layer (OAtuh2 encryption):
-  - 
+  - Application that allows users to grant access to user information from one website to another website
+  - OAuth allows account information from one web application to be transferred to another web application
+  - Withouth the need to enter password
+  - Works using the HTTP protocol
+  - Process:
+            Web app gets access token 
+            
 
 Exploitation ideas:
   - Website Account Hacking
