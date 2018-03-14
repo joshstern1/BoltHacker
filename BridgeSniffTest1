@@ -1,0 +1,34 @@
+With the bridge, there is a little different protocol than from the regular phone.
+
+Whenever we do a lock/unlock, we actually do double the amount of work than we do with the phone.
+
+Also we do a reconnection whenever we are about to write to the lock
+
+Unlock #1
+- Write to handle 0x19 offset 0 with the value- 56:3c:b3:18:c8:32:a5:df:32:99:5b:b6:59:61:b1:1c:b7:a5
+- Write to handle 0x19 offset 18 with the value- 08:f6:d8:69:2c:d0:10:7c:b5:c2:7a:66
+- Execute write
+
+- Then write to handle 0x19 with offset 0 with the value- 1c:b3:3c:10:88:9c:18:b4:4b:9f:cd:5a:1d:1d:a8:10:f9:3e
+- Then write to handle 0x19 with offset 18 with the value- 32:cb:74:8c
+- Execute write
+
+
+Lock #1
+- handle 0x19 offset 0 value- 56:cf:2a:18:c8:32:a5:df:88:e9:7d:5d:07:2f:6d:f9:d7:e5
+- handle 0x19 offset 18 value- 1f:95:d7:a1:ed:f7:9d:06:4e:e0:ee:92
+- Execute write
+
+- handle 0x19 offset 0 value- 1c:2a:cf:10:fa:a9:28:72:2b:41:7a:65:f1:a1:06:21:64:74
+- handle 0x19 offset 18 value- 0a:22:d9:60
+- Execute write
+
+
+Unlock #2
+- handle 0x19 offset 0 value- 56:55:32:18:c8:32:a5:df:46:e5:97:bf:c3:ed:fb:fc:84:3a
+- handle 0x19 offset 18 value- 46:4f:1b:41:52:fc:f0:28:1b:01:48:6e
+- Execute write
+
+- handle 0x19 offset 0 value- 1c:32:55:10:98:6a:61:15:3c:4e:56:1e:79:08:6b:00:6f:2a
+- handle 0x19 offset 18 value- 39:60:3c:00
+- Execute write
