@@ -48,6 +48,11 @@ Applicaiton Layer (OAtuh2 encryption):
      |        |                               |     Server    |
      |        |<-(F)--- Protected Resource ---|               |
      +--------+                               +---------------+
+     
+     Weaknesses:
+     -Spec does not mandate the length of tokens
+     -Spec does not require the use of SSL but all major implementations use SSL with it
+
 
                      Figure 1: Abstract Protocol Flow
                      
