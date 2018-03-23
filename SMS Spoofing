@@ -1,0 +1,12 @@
+Because Alarm.com allows users to control the BOLT via sms if the bridge is also set up, we believe that if we can spoof sms messages, we can control the lock.
+
+Many websites offer sms spoofing services, but they only allow us to spoof numbers that are not being used by real phones.
+
+Johannes suggested that we try spoofing sms messages with skype by changing the caller id
+  I tried this, and it will not work because skype requires that you verify phone numbers before making them your caller id
+  
+Johannes also suggested that we try spoofcard
+  I used their free trial and was able to successfully spoof zack's phone number
+  I called a special number from my phone, typed in a password provided by spoofcard, and it transferred me to the proper destination phone, where the caller id appeared as another phone.
+  Next I will have to re-setup the bridge and try spoofing sms messages to lock and unlock the BOLT
+  For spoofcard, you have to pay to spoof texts
