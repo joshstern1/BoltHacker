@@ -10,3 +10,7 @@ Johannes also suggested that we try spoofcard
   I called a special number from my phone, typed in a password provided by spoofcard, and it transferred me to the proper destination phone, where the caller id appeared as another phone.
   Next I will have to re-setup the bridge and try spoofing sms messages to lock and unlock the BOLT
   For spoofcard, you have to pay to spoof texts
+  Spoofcard does not let you set the caller id as a name, it must be a phone number
+
+In an article that Johannes sent me, it claims that sms spoofing is technically not illegal in the United States, and that there are certain scenarios in which it is allowed.
+  
