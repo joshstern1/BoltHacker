@@ -14,3 +14,9 @@ Johannes also suggested that we try spoofcard
 
 In an article that Johannes sent me, it claims that sms spoofing is technically not illegal in the United States, and that there are certain scenarios in which it is allowed.
   
+**************************************************************************************
+- Spoofcard will not work for sms spoofing for our purposes. 
+- It will let you send sms messages to any phone number, but in order four you to set the sender's number to any number you want, you have to be sending the text to an international number. 
+- For texting american numbers, you must select the sender's number from a list provided by spoofcard.
+- If this lock was made by an international company, then we would be able to spoof numbers and likely hack it.
+- At this point, I do not think it is possible for us to spoof sms messages to Lockitron.
