@@ -1,20 +1,24 @@
-package android.support.v4.widget;
+package android.support.v7.widget;
 
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
+import android.support.v7.widget.aq.C0959a;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-class as extends Animation {
-    final /* synthetic */ int f2385a;
-    final /* synthetic */ int f2386b;
-    final /* synthetic */ SwipeRefreshLayout f2387c;
+class as implements Runnable {
+    final /* synthetic */ ArrayList f3662a;
+    final /* synthetic */ aq f3663b;
 
-    as(SwipeRefreshLayout swipeRefreshLayout, int i, int i2) {
-        this.f2387c = swipeRefreshLayout;
-        this.f2385a = i;
-        this.f2386b = i2;
+    as(aq aqVar, ArrayList arrayList) {
+        this.f3663b = aqVar;
+        this.f3662a = arrayList;
     }
 
-    public void applyTransformation(float f, Transformation transformation) {
-        this.f2387c.f2253C.setAlpha((int) (((float) this.f2385a) + (((float) (this.f2386b - this.f2385a)) * f)));
+    public void run() {
+        Iterator it = this.f3662a.iterator();
+        while (it.hasNext()) {
+            this.f3663b.m6821a((C0959a) it.next());
+        }
+        this.f3662a.clear();
+        this.f3663b.f3655h.remove(this.f3662a);
     }
 }

@@ -1,26 +1,21 @@
-package android.support.v4.widget;
+package android.support.v7.widget;
 
-import android.widget.PopupWindow;
-import java.lang.reflect.Method;
+import android.support.v7.widget.AppCompatSpinner.C0912b;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 
-class aj {
-    private static Method f2366a;
-    private static boolean f2367b;
+class aj implements OnGlobalLayoutListener {
+    final /* synthetic */ C0912b f3620a;
 
-    static void m4700a(PopupWindow popupWindow, int i) {
-        if (!f2367b) {
-            try {
-                f2366a = PopupWindow.class.getDeclaredMethod("setWindowLayoutType", new Class[]{Integer.TYPE});
-                f2366a.setAccessible(true);
-            } catch (Exception e) {
-            }
-            f2367b = true;
+    aj(C0912b c0912b) {
+        this.f3620a = c0912b;
+    }
+
+    public void onGlobalLayout() {
+        if (this.f3620a.m5969b(this.f3620a.f3226a)) {
+            this.f3620a.mo927b();
+            super.mo868d();
+            return;
         }
-        if (f2366a != null) {
-            try {
-                f2366a.invoke(popupWindow, new Object[]{Integer.valueOf(i)});
-            } catch (Exception e2) {
-            }
-        }
+        this.f3620a.mo869e();
     }
 }

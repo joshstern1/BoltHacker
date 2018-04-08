@@ -1,24 +1,24 @@
-package android.support.v4.widget;
+package android.support.v7.widget;
 
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
+import android.support.v7.widget.RecyclerView.C0199u;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-class at implements AnimationListener {
-    final /* synthetic */ SwipeRefreshLayout f2388a;
+class at implements Runnable {
+    final /* synthetic */ ArrayList f3664a;
+    final /* synthetic */ aq f3665b;
 
-    at(SwipeRefreshLayout swipeRefreshLayout) {
-        this.f2388a = swipeRefreshLayout;
+    at(aq aqVar, ArrayList arrayList) {
+        this.f3665b = aqVar;
+        this.f3664a = arrayList;
     }
 
-    public void onAnimationStart(Animation animation) {
-    }
-
-    public void onAnimationEnd(Animation animation) {
-        if (!this.f2388a.f2287v) {
-            this.f2388a.m4564b(null);
+    public void run() {
+        Iterator it = this.f3664a.iterator();
+        while (it.hasNext()) {
+            this.f3665b.m6838u((C0199u) it.next());
         }
-    }
-
-    public void onAnimationRepeat(Animation animation) {
+        this.f3664a.clear();
+        this.f3665b.f3653f.remove(this.f3664a);
     }
 }
