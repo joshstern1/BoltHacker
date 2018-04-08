@@ -1,0 +1,31 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: Lockitron_v3.5.7_apkpure.com(1).apk
+compressionType: false
+doNotCompress:
+- arsc
+- apk
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '18'
+  targetSdkVersion: '21'
+sharedLibrary: false
+unknownFiles:
+  project.clj: '8'
+  pusher.properties: '8'
+  fabric/com.crashlytics.sdk.android.answers.properties: '8'
+  fabric/com.crashlytics.sdk.android.beta.properties: '8'
+  fabric/com.crashlytics.sdk.android.crashlytics-core.properties: '8'
+  fabric/com.crashlytics.sdk.android.crashlytics.properties: '8'
+  fabric/io.fabric.sdk.android.fabric.properties: '8'
+  io/branch/resources/fabric/io.branch.sdk.android.library.properties: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.3.0
+versionInfo:
+  versionCode: '205'
+  versionName: 3.5.7
