@@ -77,4 +77,8 @@ Slave: Lock
       - When just locking and unlock the lock, this is the only handle that lock writes to
       - The values that the master writes to handle 0x19 seem to be random/encrypted (basically we can't predict them)
             - The devices must have a way of decrypting them or deciding ahead of time what the values should be
+      
+      OPCODES
+-When we send the first write value to handle 0x19 offset 0 upon a lock or unlock, the 0x1c byte (index 0) and the 0x10 byte (index 3) are always the same, meaning that they are some sort of opcodes.
+-When we read back the value from handle 0x17, the first byte is always 0x05, meaning that it is some opcode. The 2nd and 3rd bytes are always the same 2nd and 3rd bytes as the ones in the value written to handle 0x19 offset 0, and the fourth byte is always 0x00.
           
