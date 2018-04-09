@@ -1,0 +1,343 @@
+[
+    {
+        "uuid": "1800",
+        "name": "Generic Access",
+        "type": "org.bluetooth.service.generic_access",
+        "startHandle": 1,
+        "endHandle": 7,
+        "characteristics": [
+            {
+                "uuid": "2a00",
+                "name": "Device Name",
+                "properties": [
+                    "read",
+                    "write"
+                ],
+                "value": "3139393832333161",
+                "descriptors": [],
+                "startHandle": 2,
+                "valueHandle": 3,
+                "asciiValue": "1998231a"
+            },
+            {
+                "uuid": "2a01",
+                "name": "Appearance",
+                "properties": [
+                    "read"
+                ],
+                "value": "0000",
+                "descriptors": [],
+                "startHandle": 4,
+                "valueHandle": 5,
+                "asciiValue": "  "
+            },
+            {
+                "uuid": "2a04",
+                "name": "Peripheral Preferred Connection Parameters",
+                "properties": [
+                    "read"
+                ],
+                "value": "5000a00000009001",
+                "descriptors": [],
+                "startHandle": 6,
+                "valueHandle": 7,
+                "asciiValue": "P       "
+            }
+        ]
+    },
+    {
+        "uuid": "1801",
+        "name": "Generic Attribute",
+        "type": "org.bluetooth.service.generic_attribute",
+        "startHandle": 8,
+        "endHandle": 11,
+        "characteristics": [
+            {
+                "uuid": "2a05",
+                "name": "Service Changed",
+                "properties": [
+                    "indicate"
+                ],
+                "value": "",
+                "descriptors": [
+                    {
+                        "handle": 11,
+                        "uuid": "2902",
+                        "value": ""
+                    }
+                ],
+                "startHandle": 9,
+                "valueHandle": 10
+            }
+        ]
+    },
+    {
+        "uuid": "180a",
+        "name": "Device Information",
+        "type": "org.bluetooth.service.device_information",
+        "startHandle": 12,
+        "endHandle": 20,
+        "characteristics": [
+            {
+                "uuid": "2a29",
+                "name": "Manufacturer Name String",
+                "properties": [
+                    "read"
+                ],
+                "value": "4c6f636b6974726f6e",
+                "descriptors": [],
+                "startHandle": 13,
+                "valueHandle": 14,
+                "asciiValue": "Lockitron"
+            },
+            {
+                "uuid": "2a24",
+                "name": "Model Number String",
+                "properties": [
+                    "read"
+                ],
+                "value": "426f6c74",
+                "descriptors": [],
+                "startHandle": 15,
+                "valueHandle": 16,
+                "asciiValue": "Bolt"
+            },
+            {
+                "uuid": "2a26",
+                "name": "Firmware Revision String",
+                "properties": [
+                    "read"
+                ],
+                "value": "36345f31343536353437393437",
+                "descriptors": [],
+                "startHandle": 17,
+                "valueHandle": 18,
+                "asciiValue": "64_1456547947"
+            },
+            {
+                "uuid": "2a28",
+                "name": "Software Revision String",
+                "properties": [
+                    "read"
+                ],
+                "value": "31343936393633333031",
+                "descriptors": [],
+                "startHandle": 19,
+                "valueHandle": 20,
+                "asciiValue": "1496963301"
+            }
+        ]
+    },
+    {
+        "uuid": "a1a51a187b7747d291db34a48dcd3de9",
+        "name": null,
+        "type": null,
+        "startHandle": 21,
+        "endHandle": 31,
+        "characteristics": [
+            {
+                "uuid": "1a53e10758f747e5a919acc9e05a908b",
+                "name": null,
+                "properties": [
+                    "read"
+                ],
+                "value": "059d4500b2a3",
+                "descriptors": [],
+                "startHandle": 22,
+                "valueHandle": 23,
+                "asciiValue": "  E   "
+            },
+            {
+                "uuid": "562e4701c08e4547a7b0908823260df3",
+                "name": null,
+                "properties": [
+                    "write"
+                ],
+                "value": "",
+                "descriptors": [],
+                "startHandle": 24,
+                "valueHandle": 25
+            },
+            {
+                "uuid": "c2bea3d2ae334e9fabeee05377f8623f",
+                "name": null,
+                "properties": [
+                    "read",
+                    "notify"
+                ],
+                "value": "01",
+                "descriptors": [
+                    {
+                        "handle": 28,
+                        "uuid": "2902",
+                        "value": ""
+                    }
+                ],
+                "startHandle": 26,
+                "valueHandle": 27,
+                "asciiValue": " "
+            },
+            {
+                "uuid": "26397326157c4364acade7441b43e3fc",
+                "name": null,
+                "properties": [
+                    "read",
+                    "notify"
+                ],
+                "value": "b923973baef3abacec92d5312d38d9c1",
+                "descriptors": [
+                    {
+                        "handle": 31,
+                        "uuid": "2902",
+                        "value": ""
+                    }
+                ],
+                "startHandle": 29,
+                "valueHandle": 30,
+                "asciiValue": " # ;       1-8  "
+            }
+        ]
+    },
+    {
+        "uuid": "0d08ecec99f748c5ab62ee2ec52d48b8",
+        "name": null,
+        "type": null,
+        "startHandle": 32,
+        "endHandle": 46,
+        "characteristics": [
+            {
+                "uuid": "0d08daef99f748c5ab62ee2ec52d48b8",
+                "name": null,
+                "properties": [
+                    "read",
+                    "notify"
+                ],
+                "value": "0a34ac95",
+                "descriptors": [
+                    {
+                        "handle": 35,
+                        "uuid": "2901",
+                        "value": "EncPipeWriteNonce"
+                    },
+                    {
+                        "handle": 36,
+                        "uuid": "2902",
+                        "value": ""
+                    }
+                ],
+                "startHandle": 33,
+                "valueHandle": 34,
+                "asciiValue": " 4  "
+            },
+            {
+                "uuid": "0d08daed99f748c5ab62ee2ec52d48b8",
+                "name": null,
+                "properties": [
+                    "write"
+                ],
+                "value": "",
+                "descriptors": [
+                    {
+                        "handle": 39,
+                        "uuid": "2901",
+                        "value": "EncPipeWrite"
+                    }
+                ],
+                "startHandle": 37,
+                "valueHandle": 38
+            },
+            {
+                "uuid": "0d08deaf99f748c5ab62ee2ec52d48b8",
+                "name": null,
+                "properties": [
+                    "write"
+                ],
+                "value": "",
+                "descriptors": [
+                    {
+                        "handle": 42,
+                        "uuid": "2901",
+                        "value": "EncPipeReadNonce"
+                    }
+                ],
+                "startHandle": 40,
+                "valueHandle": 41
+            },
+            {
+                "uuid": "0d08dead99f748c5ab62ee2ec52d48b8",
+                "name": null,
+                "properties": [
+                    "read",
+                    "notify",
+                    "indicate"
+                ],
+                "value": "a6ed279093983280d07d70240309c88d3511bfa3d214daa47efd0c9463f410c48f61ae77930ddbe03a486a847e0e148b853918c16d8d6b12a2ff2a1bec9c421bbfd74a50b8502b2e02e0b34d0a5f03d31577609d80728725bac8c0f9fb66791f783a0006e16db0aa0adeaea340bfd457497cb48f27d3ab12ee9fa861033f3df6",
+                "descriptors": [
+                    {
+                        "handle": 45,
+                        "uuid": "2901",
+                        "value": "EncPipeRead"
+                    },
+                    {
+                        "handle": 46,
+                        "uuid": "2902",
+                        "value": ""
+                    }
+                ],
+                "startHandle": 43,
+                "valueHandle": 44,
+                "asciiValue": "  '   2  }p$    5       ~   c    a w    :Hj ~    9  m k   *   B   JP P+.   M _   w`  r %     fy x:   m      @  WI|  '      a ?= "
+            }
+        ]
+    },
+    {
+        "uuid": "000015301212efde1523785feabcd123",
+        "name": null,
+        "type": null,
+        "startHandle": 47,
+        "endHandle": 65535,
+        "characteristics": [
+            {
+                "uuid": "000015321212efde1523785feabcd123",
+                "name": null,
+                "properties": [
+                    "writeWithoutResponse"
+                ],
+                "value": "",
+                "descriptors": [],
+                "startHandle": 48,
+                "valueHandle": 49
+            },
+            {
+                "uuid": "000015311212efde1523785feabcd123",
+                "name": null,
+                "properties": [
+                    "write",
+                    "notify"
+                ],
+                "value": "",
+                "descriptors": [
+                    {
+                        "handle": 52,
+                        "uuid": "2902",
+                        "value": ""
+                    }
+                ],
+                "startHandle": 50,
+                "valueHandle": 51
+            },
+            {
+                "uuid": "000015341212efde1523785feabcd123",
+                "name": null,
+                "properties": [
+                    "read"
+                ],
+                "value": "0800",
+                "descriptors": [],
+                "startHandle": 53,
+                "valueHandle": 54,
+                "asciiValue": "  "
+            }
+        ]
+    }
+]
