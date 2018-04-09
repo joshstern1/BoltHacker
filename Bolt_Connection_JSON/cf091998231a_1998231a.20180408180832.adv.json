@@ -1,0 +1,16 @@
+{
+    "id": "cf091998231a",
+    "eir": "0201051107e93dcd8da434db91d247777b181aa5a109093139393832333161",
+    "scanResponse": "020a000702001801180a1813ff34124738d88eb4026e3eee4dec4530908ec4",
+    "decodedNonEditable": {
+        "localName": "1998231a",
+        "manufacturerDataHex": "34124738d88eb4026e3eee4dec4530908ec4",
+        "manufacturerDataAscii": "4 G8    n> M E0   ",
+        "serviceUuids": [
+            "a1a51a187b7747d291db34a48dcd3de9",
+            "1800",
+            "1801",
+            "180a"
+        ]
+    }
+}
