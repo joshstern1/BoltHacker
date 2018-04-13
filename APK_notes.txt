@@ -1,0 +1,2 @@
+- DexProtector used to create Android runnable code.
+- jadx used to decompile Dex files into obfuscated Java .class files
