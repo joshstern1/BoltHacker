@@ -17,7 +17,7 @@ run()
   Key keyForUser = this.lock.getKeyForUser(ab.m15573e());   //get user key, very complicated
   if (keyForUser != null) {
     this.aaVar.m15309a(keyForUser.getAccessKey(), this.lockState);  //generates random/encrypted data array to be written
-    this.bluetoothGattCharacteristic.setValue(this.aaVar.m15311a());  //copies data array into BLE Char value 
+    this.bluetoothGattCharacteristic.setValue(this.aaVar.m15311a());  //builds packet with m15311a(), and then sets BLE char value with it
     this.c2540a.f8785n.m15328b(this.bluetoothGattCharacteristic);   //call m15328b() which is the function above, I think f8785n is the GATT descriptor
     return;
   }
@@ -35,15 +35,39 @@ byte[] m15300a(Lock lock, LockState lockState, byte[] bArr)
     
     
 byte[] m15302a(LockState lockState, String str) 
-  return m15300a(this.f8786o, lockState, C2649i.m15635a(str));  //call m15300a() which is the function above
+  return m15300a(this.f8786o, lockState, C2649i.m15635a(str));  //call m15300a() which is the function above, doesn't do anything else
   
 
-public byte[] m15301a(LockState lockState) 
-  return m15302a(lockState, null);  //call m15302a() which is the function above
+byte[] m15301a(LockState lockState) 
+  return m15302a(lockState, null);  //call m15302a() which is the function above, doesn't really do anything else
     
 
-public void mo2195a(Lock lock) {
+mo2195a(Lock lock) {
   upon connection with lockitron
   this.f8887m = this.f8876b.m15301a(LockState.UNLOCK);  //call m15301a
+  
+  
+*********************************************************************************************************************************
+
+Helper Functions
+
+public byte[] m15311a(){
+  byte b = 0x00;
+  if (this.f8806i) {
+     byte[] bArr = new byte[16];
+     bArr[0] = 0x1c;
+     bArr[1] = this.f8800c; //(byte) new Random().nextInt(256);
+     bArr[2] = this.f8801d; //(byte) new Random().nextInt(256);
+     bArr[3] = 0x10;
+     while (b < 16) {
+        bArr[b + 4] = this.f8805h[b];
+        b++;
+     }
+     bArr[20] = this.f8803f;
+     bArr[21] = this.f8804g;
+     return bArr;
+  }
+}
+
 
   
