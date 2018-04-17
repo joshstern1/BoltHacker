@@ -28,9 +28,9 @@ byte[] m15300a(Lock lock, LockState lockState, byte[] bArr)
   if (this.f8785n == null || this.f8771G == null || this.f8771G.m15483c() == null) {
     return null;
   BluetoothGattCharacteristic c = this.f8771G.m15483c();  //c = BLE char at handle 0x19 
-  aa aaVar = new aa(0x1c, bArr);
+  aa aaVar = new aa(0x1c, bArr);  //initializes empty array and sets it as a write message with header byte 0x1c
   this.f8778g = true;
-  new Thread(new C2545f(this, lock, aaVar, lockState, c)).run();
+  new Thread(new C2545f(this, lock, aaVar, lockState, c)).run();  //call the run function which is above
   return aaVar.m15312b();
     
     
@@ -51,23 +51,61 @@ mo2195a(Lock lock) {
 
 Helper Functions
 
-public byte[] m15311a(){
+byte[] m15311a(){  //called by run, sets up ble char array value
   byte b = 0x00;
   if (this.f8806i) {
      byte[] bArr = new byte[16];
-     bArr[0] = 0x1c;
+     bArr[0] = 0x1c;    //always the same for locks and unlocks
      bArr[1] = this.f8800c; //(byte) new Random().nextInt(256);
      bArr[2] = this.f8801d; //(byte) new Random().nextInt(256);
-     bArr[3] = 0x10;
-     while (b < 16) {
+     bArr[3] = 0x10;    //akways the same for locks and unlocks
+     while (b < 16) {   //loop for the payload
         bArr[b + 4] = this.f8805h[b];
         b++;
      }
-     bArr[20] = this.f8803f;
-     bArr[21] = this.f8804g;
+     bArr[20] = this.f8803f;  //I think this is also randomly generated
+     bArr[21] = this.f8804g;  //I think this is also randomly generated
      return bArr;
   }
 }
 
+
+m15309a(String str, LockState lockState){
+  int i = 0;
+  byte[] bArr = new byte[16];
+  for (int i2 = 0; i2 < 14; i2++) {
+    bArr[i2] = (byte) new Random().nextInt(255);  //randomly get 14 different values, how does this function work?
+  }
+  if (lockState.equals(LockState.LOCK)) {
+    i = 1;
+  }
+  bArr[5] = (byte) i;   //always 0 or 1
+  short a = af.m15331a(Arrays.copyOf(bArr, 14));  //passing in only a copy?
+  bArr[14] = (byte) ((a >> 8) & 255); //a is random so this value is also random
+  bArr[15] = (byte) (a & 255);        //a is random so this value is also random
+  m15310a(af.m15332a(str, bArr));     
+}
+
+short m15331a(byte[] bArr) {    //called by m15309a, loops through for each byte in the payload and calls m15330a, just returns a random value for a
+  short a = m15330a((short) 0, bArr[0]);
+  for (int i = 1; i < 14; i++) {
+    a = m15330a(a, bArr[i]);
+  }
+  return a;
+}
+
+short m15330a(short s, byte b) {  //all it does is return a random value for s2
+  short s2 = (short) ((b & 255) ^ s);
+  for (int i = 0; i < 8; i++) {
+    if ((s2 & 1) == 1) {
+      s2 = (short) (((s2 & 65535) >>> 1) ^ 40961);
+    } 
+    else {
+      s2 = (short) ((s2 & 65535) >>> 1);
+    }
+  }
+  return s2;
+}
+  
 
   
