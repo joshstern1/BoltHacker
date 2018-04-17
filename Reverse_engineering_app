@@ -1,0 +1,49 @@
+m15321d(BluetoothGattCharacteristic bluetoothGattCharacteristic) //writing function
+  write the Characterstic
+  
+m15316b(C2591z c2591z)
+  m15321d(c2591z.m15494b()); //call the writing function
+  
+m15314a(C2591z c2591z)
+  just call m15316b() with the BLE Char
+
+m15328b(BluetoothGattCharacteristic bluetoothGattCharacteristic)
+  create the c2591z with writing instructions
+  call m15314a()
+  
+now for the important/difficult part
+  
+run()
+  Key keyForUser = this.lock.getKeyForUser(ab.m15573e());   //get user key, very complicated
+  if (keyForUser != null) {
+    this.aaVar.m15309a(keyForUser.getAccessKey(), this.lockState);  //generates random/encrypted data array to be written
+    this.bluetoothGattCharacteristic.setValue(this.aaVar.m15311a());  //copies data array into BLE Char value 
+    this.c2540a.f8785n.m15328b(this.bluetoothGattCharacteristic);   //call m15328b() which is the function above, I think f8785n is the GATT descriptor
+    return;
+  }
+  this.c2540a.m15305d();  //else disconnect
+
+
+byte[] m15300a(Lock lock, LockState lockState, byte[] bArr) 
+  if (this.f8785n == null || this.f8771G == null || this.f8771G.m15483c() == null) {
+    return null;
+  BluetoothGattCharacteristic c = this.f8771G.m15483c();  //c = BLE char at handle 0x19 
+  aa aaVar = new aa(0x1c, bArr);
+  this.f8778g = true;
+  new Thread(new C2545f(this, lock, aaVar, lockState, c)).run();
+  return aaVar.m15312b();
+    
+    
+byte[] m15302a(LockState lockState, String str) 
+  return m15300a(this.f8786o, lockState, C2649i.m15635a(str));  //call m15300a() which is the function above
+  
+
+public byte[] m15301a(LockState lockState) 
+  return m15302a(lockState, null);  //call m15302a() which is the function above
+    
+
+public void mo2195a(Lock lock) {
+  upon connection with lockitron
+  this.f8887m = this.f8876b.m15301a(LockState.UNLOCK);  //call m15301a
+
+  
