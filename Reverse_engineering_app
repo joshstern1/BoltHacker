@@ -108,4 +108,17 @@ short m15330a(short s, byte b) {  //all it does is return a random value for s2
 }
   
 
+*****************************************************************************************************************
+Results
+
+I realized that the first and fourth bytes are always set to 0x1c and 0x10 respectively. The 2nd and 3rd bytes are random. Bytes 5-20 are also random, except byte 0x09 is equal to 0x01.
+Then bytes 5-20 are encrypted. The resulting combination of bytes 1-4 and 5-20 is then used to calculate bytes 21 and 22.
+As long as bytes 21 and 22 are put through the correct shifting and xoring functions based off the result of the encryption, then they will be valid.
+Also as long as byte 9 is still equal to 0x01 after being decrypted, then it will also be valid.
+
+I used the BLE scanner app to do a replay attack. Since I realized that the payload is mostly random, and since there is no encryption based off of the time, I knew that I could replay the values sent for previous unlockings, which I got with a packet sniffer.
+With my phone and the BLE scanner app, I was able to unlock the lock. This does not work with other phones, because my phone is already authenticated, connected, and sending the right advertisements to the app.
+In order to fully hack the lock, we need to continue Gattacker and setting up the MITM attack.
+If we can intercept and modify the data on the fly once a valid phone and the lock are connected, then we will we be able to unlock it. At that point, it's hacked.
+
   
