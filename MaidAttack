@@ -1,0 +1,33 @@
+-Darshan and I discovered a new hack for the BOLT.
+
+-Threat Model:
+  -Attacker has been given a lockitron key to your house in the past
+  
+-Vulnerability:
+  -When you share your lockitron key with someone, they receive the key on their phone's lockitron app from the lockitron server.
+  -With this key, they can control the BOLT over Bluetooth Low Energy.
+  -When you revoke a key, the key gets revoked on the lockitron serve side, which removes the key from the lockitron app.
+  -If the app is not connected to the internet, the lock cannot be revoked.
+  -Key management is not done on the actual BOLT, so only the lockitron server can give and revoke keys.
+  -So if someone has a key to your BOLT, if they then disconnect their phone from the internet, their lockitron app cannot connect to the lockitron server and therefore cannot be revoked.
+  -This means that if you give key access to anyone, even if you later revoke it, they will be able to get into your home at any later date.
+
+-Testing:
+  -Darshan and I tested this.
+  -I gave him access to my lock.
+  -Darshan turned off his phone's internet access.
+  -I revoked Darshan's access.
+  -2 hours later, Darshan was still able to control the BOLT.
+  -Darshan tried turning off his Bluetooth, and then turning it back on. He was still able to control the lock.
+  
+-Scenario:
+  -You hire a maid to come clean your house while youre not home. You give her a lockitron key to your house so that she can get in.
+  -After she cleans, you revoke her key so that she cannot get in anymore.
+  -However, right after you gave the maid a lockitron key, she turned off Wifi and Cellular Data on her iPhone.
+  -As long as her phone cannot connect to the internet, she will be able to lock and unlock the BOLT regardless of whether you revoke her access.
+  
+-Solution:
+  -Lockitron should change its key sharing policy.
+  -If someone is not the owner of the lock, but rather just given temporary access, they should only be allowed to control the lock if the app can connect to the internet and lockitron's servers.
+  -The lockitron server should have to send a secret key to the app in order for lock sharers to unlock or lock the BOLT.
+ 
