@@ -81,8 +81,8 @@ m15309a(String str, LockState lockState){
   }
   bArr[5] = (byte) i;   //always 0 or 1
   short a = af.m15331a(Arrays.copyOf(bArr, 14));  //passing in only a copy?
-  bArr[14] = (byte) ((a >> 8) & 255); //a is random so this value is also random
-  bArr[15] = (byte) (a & 255);        //a is random so this value is also random
+  bArr[14] = (byte) ((a >> 8) & 255); //checksum
+  bArr[15] = (byte) (a & 255);        //checksum
   m15310a(af.m15332a(str, bArr));     
 }
 
@@ -106,7 +106,7 @@ short m15330a(short s, byte b) {  //all it does is return a random value for s2
   }
   return s2;
 }
-  
+
 
 *****************************************************************************************************************
 Results
